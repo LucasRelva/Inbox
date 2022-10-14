@@ -1,0 +1,47 @@
+<section class="home-container">
+  <!-- sidebar -->
+  <div class="sidebar-container">
+    <div class="title">Sprint 4</div>
+    <div class="buttons-container">
+      <div class="email-btn">
+        <button (click)="toEmail()">E-mails</button>
+        <mat-icon>mail</mat-icon>
+      </div>
+      <div class="product-btn">
+        <button (click)="toProduct()">Produtos</button>
+        <mat-icon>shopping_bag</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="full-content">
+    <div class="tit-content">
+      <span>Caixa de entrada</span>
+    </div>
+    <div class="fill-content">
+      <div class="filter-bar">
+        <span>Filtrar</span>
+        <div>
+          <input type="date" [(ngModel)]="date" (ngModelChange)="filterDate($event)" />
+        </div>
+      </div>
+      <div class="body-container">
+        <div *ngFor="let row of rowsFiltered" class="body-content">
+          <div class="row-content">
+            <div class="destiny">
+              <label>{{ row.destiny }}</label>
+              <label>{{ row.subject }}</label>
+            </div>
+            <div class="text">
+              <span>{{ row.text }}</span>
+            </div>
+            <div class="date">
+              <label>{{ row.createdAt | date: 'dd/MM/yyyy HH:mm'  }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
